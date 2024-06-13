@@ -1,0 +1,106 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.container {
+  padding: 40rpx; /* 调整内边距以增大整体视觉 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  width: 100%;
+  margin-bottom: 20rpx;
+  font-size: 50rpx;
+}
+
+.register-link {
+  margin-top: 30rpx; /* 调整注册链接的上边距 */
+  text-align: center;
+  font-size: 30rpx; /* 增大注册链接的字体大小 */
+}
+
+.go-register {
+  margin-top: 20rpx;
+  color: #007aff;
+  font-size: 30rpx; /* 增大“去注册”文本的字体大小 */
+}
+
+.login-button {
+  width: 80%; /* 调整按钮宽度 */
+  font-size: 18rpx; /* 增大按钮字体大小 */
+}
+
+
+/* 样式代码根据需要自定义 */
+.form-container {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  flex: 0 0 80px;
+  font-size: 16px;
+  color: #333;
+}
+
+.form-input {
+  flex: 1;
+  margin-left: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  background-color: #1aad19;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.result text {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.button-sp-area {
+  margin-top: 20px;
+}
+
+.button-sp-area .weui-btn {
+  width: 100%;
+}

@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<navigation-bar title="智慧农场系统" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<!--
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    Weixin
+  </view>
+</scroll-view>
+<text>Hello World</text>
+<image class="userinfo-avatar" src="./image/a.jpg" ></image>
+-->
+
+<!--pages/wxml/index.wxml-->
+<!--
+<text>当前时间：{{time}}</text>
+<van-button type="primary">按钮</van-button>
+
+-->
+<!--
+<view class="login-page">
+  <van-field
+    value="{{ username }}"
+    label="用户名"
+    placeholder="请输入用户名"
+    bind:input="onUsernameChange"
+  ></van-field>
+  <van-field
+    value="{{ password }}"
+    label="密码"
+    placeholder="请输入密码"
+    type="password"
+    bind:input="onPasswordChange"
+  ></van-field>
+  <van-button type="primary" bind:tap="login">登录</van-button>
+</view>
+-->
+<!--
+<view class="container">
+  <view class="input-container">
+    <van-field label="手机号" placeholder="请输入手机号" center input-align="center" />
+    <van-field label="密码" type="password" placeholder="请输入密码" center input-align="center" />
+  </view>
+  <van-button type="primary" block custom-class="login-button">登录</van-button>
+  <view class="register-link">没有账号？<text class="go-register">去注册</text></view>
+</view>
+
+-->
+<view class="form-container">
+  <view class="form-item">
+    <text class="form-label">圈舍id：</text>
+    <input placeholder="请输入圈舍id" bindinput="bindInput" data-field="e_id" class="form-input"/>
+  </view>
+  <view class="form-item">
+    <text class="form-label">圈舍名字：</text>
+    <input placeholder="请输入圈舍名字" bindinput="bindInput" data-field="e_name" class="form-input"/>
+  </view>
+  <view class="form-item">
+    <text class="form-label">圈舍面积：</text>
+    <input placeholder="请输入圈舍面积" bindinput="bindInput" data-field="e_square" class="form-input"/>
+  </view>
+  <view class="form-item">
+    <text class="form-label">圈舍位置：</text>
+    <input placeholder="请输入圈舍位置" bindinput="bindInput" data-field="e_add" class="form-input"/>
+  </view>
+  <view class="form-item">
+    <text class="form-label">圈舍简介：</text>
+    <input placeholder="请输入圈舍简介" bindinput="bindInput" data-field="e_desc" class="form-input"/>
+  </view>
+
+  <button class="weui-btn weui-btn_primary form-button" bindtap="submitForm">增加</button>
+  <button class="weui-btn weui-btn_primary form-button" bindtap="deleteForm">删除</button>
+  <button class="weui-btn weui-btn_primary form-button" bindtap="updateForm">更新</button>
+  
+  <view class="result">
+    <text>圈舍id：{{result.e_id}}</text>
+    <text>圈舍名字：{{result.e_name}}</text>
+    <text>圈舍面积：{{result.e_square}}</text>
+    <text>圈舍位置：{{result.e_add}}</text>
+    <text>圈舍简介：{{result.e_desc}}</text>
+  </view>
+</view>
+<view class="button-sp-area">
+  <button class="weui-btn weui-btn_primary form-button" bindtap="give">随机查询</button>
+</view>
