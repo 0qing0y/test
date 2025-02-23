@@ -1,0 +1,84 @@
+<view class="container">
+    <!-- 浮动按钮布局 -->
+    <view class="button-group">
+        <button bindtap="OpenInOutDate" class="custom-button">信息导入导出</button>
+        <!-- 历史数据分析按钮 -->
+        <button bindtap="openDateSelector" class="custom-button">历史数据分析</button>
+        <button bindtap="onaddland" class="custom-button">添加圈舍</button>
+    </view>
+    <!-- </view><view class="button-group"><button class="add-button" bindtap="onAddLand">+</button> -->
+    <!-- 添加田块按钮 -->
+    <!-- <button class="add-button" bindtap="onaddland">+</button> -->
+      <scroll-view class="farm-list" scroll-y="true">
+    <block wx:for="{{farms}}" wx:key="id">
+      <view class="farm-item">
+        <image class="farm-img" src="{{'/assets/enclosure'+item.e_id+'.jpg'}}" mode="aspectFill"></image>
+        <view class="farm-info">
+          <view class="farm-name">{{item.e_name}}</view>
+          <button class="details1-link" bindtap="viewDetails" data-id="{{item.e_id}}">查看更多 ></button>
+                
+        </view>
+      </view>
+    </block>
+        <!-- 导入导出信息弹窗 -->
+        <view wx:if="{{InOutDate}}" class="modal">
+            <view class="modal-content">
+                <view>
+                    <button bindtap="importFarmData">导入圈舍信息</button>
+                    <button bindtap="exportFarmData">导出圈舍信息</button>
+                </view>
+                <button bindtap="closeInOutData">关闭</button>
+            </view>
+        </view>
+        <!-- Modal for chart -->
+        <view wx:if="{{showChartModal}}" class="modal">
+            <view class="modal-content">
+                <!-- Chart container -->
+                <view class="chart-container">
+                    <canvas canvas-id="barCanvas" class="canvas"></canvas>
+                </view>
+                <!-- Close button -->
+                <button bindtap="closeParameterChart" class="close-button">关闭</button>
+            </view>
+        </view>
+         
+    <view wx:if="{{isonaddland}}" class="modal1">
+    <view class="modal-content1">
+      <text class="modal-title1">添加圈舍</text>
+      <input placeholder="名字" value="{{onName}}" bindinput="onNameChange"/>
+      
+    <view>
+        <map id="myMap" style="width: 100%; height: 300px;" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" bindtap="onMarkerTap" bindregionchange="onRegionChange" polyline="{{boundaryPointsShow}}">
+        </map>
+    </view>
+
+    <view class="btn-group">
+        <button bindtap="addBoundaryPoint">添加边界点</button>
+        <button bindtap="completeBoundaryInput">完成添加</button>
+    </view>
+
+    <input placeholder="经度" value="{{ onLong }}" bindinput="onLongChange" />
+    <input placeholder="纬度" value="{{ onLat }}" bindinput="onLatChange" />
+    <input type="number" placeholder="面积" value="{{ onQuantity }}" bindinput="onQuantityChange" />
+    <input placeholder="描述" value="{{ desc }}" bindinput="ondescChange" />
+      <view class="modal-actions1">
+        <button bindtap="onon">确认</button>
+        <button bindtap="seStockInModal">取消</button>
+      </view>
+    </view>
+  </view>
+        <!-- 点击历史数据分析后弹出的日期选择器 -->
+        <view wx:if="{{showDateSelector}}" class="modal">
+            <view class="modal-content">
+                <picker mode="date" value="{{startDate}}" bindchange="onStartDateChange">
+                    <view class="picker">开始日期： {{startDate}}</view>
+                </picker>
+                <picker mode="date" value="{{endDate}}" bindchange="onEndDateChange">
+                    <view class="picker">结束日期： {{endDate}}</view>
+                </picker>
+                <button bindtap="onConfirm">确认</button>
+                <button bindtap="onCancel">取消</button>
+            </view>
+        </view>
+    </scroll-view>
+</view>

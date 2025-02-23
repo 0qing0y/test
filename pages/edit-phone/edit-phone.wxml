@@ -1,0 +1,7 @@
+<view class="edit-phone-container"> 
+<text class="title">\n\n</text>
+<text class="title">修改手机号</text> 
+<text class="title">\n\n</text>
+<input placeholder="新手机号" type="phone" bindinput="onInputNewPhone"/> 
+<button bindtap="onConfirm">确认</button>
+</view>

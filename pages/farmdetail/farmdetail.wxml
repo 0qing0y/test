@@ -1,0 +1,115 @@
+<view class="container">
+  <image src="{{img}}" class="farm-image"></image>
+
+
+
+  <!-- 增加新牲畜按钮 
+  <button bindtap="openAddModal" class="button">增加新牲畜</button>-->
+  <!-- 按钮容器 -->
+<view class="button-container">
+  <!-- 种植新作物按钮 -->
+  <button bindtap="openAddModal" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/addLivestock.png" class="button-icon"></image>
+      <text>增加牲畜</text>
+    </view>
+  </button>
+    <!-- 收获牲畜按钮 
+  <button bindtap="openHarvestModal" class="button">收获牲畜</button>-->
+  <button bindtap="openHarvestModal" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/harvestLivestock.png" class="button-icon"></image>
+      <text>收获牲畜</text>
+    </view>
+  </button>
+
+  <!-- 查看记录按钮 
+  <button bindtap="viewRecords" class="button">查看记录</button>-->
+  <button bindtap="viewRecords" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/记录.png" class="button-icon"></image>
+      <text>查看记录</text>
+    </view>
+  </button>
+
+
+  </view>
+
+
+  <view wx:if="{{ enclosureInfo }}" class="field-info-container">
+
+<view class="field-detail">圈舍ID: {{ enclosureInfo.e_id }}</view>
+<view class="field-detail">名称: {{ enclosureInfo.e_name }}</view>
+<!--<view >地址: {{ enclosureInfo.e_add }}</view>-->
+<view class="field-detail">面积: {{ enclosureInfo.e_square }}</view>
+<view class="field-detail">描述: {{ enclosureInfo.e_desc }}</view>
+<view class="field-detail">是否空闲: {{ isIdle ? '是' : '否' }}</view>
+
+</view>
+
+<view wx:if="{{ breedInfo }}" class="field-info-container">
+<view class="field-detail">当前养殖畜禽: {{ breedInfo.an_name }}</view>
+<!--<view>圈舍: {{ breedInfo.e }}</view>-->
+<view class="field-detail">是否入库: {{ breedInfo.is_stored ? '是' : '否' }}</view>
+<view class="field-detail">批次号: {{ breedInfo.b_id }}</view>
+<view class="field-detail">养殖数量: {{ breedInfo.b_breedamount }}</view>
+<view class="field-detail">开始养殖时间: {{ breedInfo.b_starttime }}</view>
+</view>
+
+  <!-- 查看记录弹窗 -->
+  <view wx:if="{{showRecords}}" class="modal1">
+  <view class="modal-mask">
+    <scroll-view scroll-y style="height: 80vh; display: flex; align-items: center; justify-content: center;">
+      <view class="modal-content">
+        <text>养殖记录</text>
+        <!-- 排序方式选择器 -->
+        <picker mode="selector" range="{{ ['按质量排序', '按养殖时间排序', '按养殖畜禽排序', '按养殖数量排序', '按结束养殖时间排序'] }}" bindchange="handleSortChange">
+          <button class="sort-button">选择排序方式</button>
+        </picker>
+
+        <!-- 种植记录列表 -->
+        <view wx:for="{{ (sortByBreedWeight || sortByTime || sortByBreed || sortByAmount || sortByBreedTime) ? sortedbreedings : breedings }}" wx:key="b_id">
+          <view>-----------------------------------------</view>
+          <view>批次号: {{ item.b_id }}</view>
+          <view>畜禽: {{ item.an_name }}</view>
+          <view>圈舍: {{ item.e_id }}</view>
+          <view>养殖时间: {{ item.b_starttime }}</view>
+          <view>养殖数量: {{ item.b_breedamount }}</view>
+          <view>结束养殖时间: {{ item.b_endtime }}</view>
+          <view>质量: {{ item.b_num }}</view>
+          <view>是否存储: {{ item.is_stored ? '是' : '否' }}</view>
+          <!-- 根据后端返回的数据字段定义显示内容 -->
+        </view>
+        <button bindtap="closeModal" class="button">关闭</button>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+
+
+
+  <!-- 增加新牲畜弹窗 -->
+  <view wx:if="{{showAddModal}}" class="modal">
+    <view class="modal-content">
+      <text>选择牲畜种类和数量</text>
+      <picker mode="selector" range="{{livestockTypes}}" bindchange="onLivestockTypeChange">
+        <view class="picker">{{selectedLivestockType || '选择牲畜种类'}}</view>
+      </picker>
+      <input type="number" placeholder="输入数量" bindinput="onQuantityChange" value="{{selectedQuantity}}" class="input"/>
+      <button bindtap="addLivestock" class="button">确认增加</button>
+      <button bindtap="closeAddModal" class="button">取消</button>
+    </view>
+  </view>
+
+  <!-- 收获牲畜弹窗 -->
+  <view wx:if="{{showHarvestModal}}" class="modal">
+    <view class="modal-content">
+      <text>收获牲畜</text>
+      <text>当前养殖：{{breedInfo.an_name}}</text>
+      <input type="number" placeholder="输入收获的重量(kg)" bindinput="onHarvestQuantityChange" value="{{harvestQuantity}}" class="input"/>
+      <button bindtap="harvestLivestock" class="button">确认收获</button>
+      <button bindtap="closeHarvestModal" class="button">取消</button>
+    </view>
+  </view>
+</view>

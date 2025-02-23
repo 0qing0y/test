@@ -1,0 +1,89 @@
+<view class="container">
+      <!-- 添加种类按钮 -->
+      <button bindtap="openAddModal" class="add-button1">添加作物</button>
+      <view class="animal-list">
+        <block wx:for="{{fruits}}" wx:key="crop_id" class="animal-item">
+        <view class="animal-item">
+      <!-- 图片和作物信息放在一起 -->
+      <view class="image-info-container">
+        
+        <view class="animal-info">
+          <view class="text-container">
+            <text class="animal-name">{{item.crop_name}}</text>
+            <text class="animal-desc">{{"简介："+item.crop_desc}}</text>
+            <text class="animal-desc">{{"种植天数："+item.crop_time}}</text>
+            <text class="animal-desc">{{"种植季节："+item.crop_month}}</text>
+          </view>
+        </view>
+        <view class="image-container">
+          <image src="{{'/assets/'+item.crop_name+'.jpg'}}" class="animal-image"></image>
+        </view>
+      </view>
+
+      <!-- 按钮水平排列在图片和作物信息整个部分下方 -->
+      <view class="button-container">
+        <button bindtap="viewFields" data-id="{{item.crop_id}}" class="small-button">查看农田信息</button>
+        <button bindtap="openEditModal" data-id="{{item.crop_id}}" data-name="{{item.crop_name}}" data-desc="{{item.crop_desc}}" data-img="{{item.img}}" data-days="{{item.crop_time}}" data-season="{{item.crop_month}}" class="small-button">编辑</button>
+        <button bindtap="deleteAnimal" data-id="{{item.crop_id}}" class="small-button">删除</button>
+      </view>
+    </view>
+  </block>
+</view>
+
+    <view class="modal-mask" wx:if="{{ showAddModal }}">
+      <view class="modal-content1">
+      <input placeholder="作物名称" bindinput="onNameInput"></input>
+      <input placeholder="描述" bindinput="onDescInput"></input>
+      <input placeholder="种植天数" bindinput="onDaysInput"></input>
+      <input placeholder="种植季节" bindinput="onSeasonInput"></input>
+      <!--<input placeholder="图片URL" bindinput="onImgInput"></input>-->
+      <button bindtap="addFruit">添加</button>
+      <button bindtap="closeAddModal">取消</button>
+    </view>
+    </view>
+
+  <view class="modal-mask" wx:if="{{ showEditModal }}">
+  <view class="modal-content1">
+    <input placeholder="作物名称" value="{{editFruitName}}" bindinput="onEditNameInput"></input>
+    <input placeholder="描述" value="{{editFruitDesc}}" bindinput="onEditDescInput"></input>
+    <input placeholder="种植天数" value="{{editFruitDays}}" bindinput="onEditDaysInput"></input>
+    <input placeholder="种植季节" value="{{editFruitSeason}}" bindinput="onEditSeasonInput"></input>
+    <!--<input placeholder="图片URL" value="{{editAnimalImg}}" bindinput="onEditImgInput"></input>-->
+    <button bindtap="updateFruit">更新</button>
+    <button bindtap="closeEditModal">取消</button>
+  </view>
+  </view>
+
+  <!-- 页面中的地图组件 -->
+  <view class="modal-mask11" wx:if="{{ showMap }}">
+  <view class="modal-content11">
+    <map 
+      longitude="{{ currentLongitude }}" 
+      latitude="{{ currentLatitude }}" 
+      markers="{{ markers }}" 
+      bindmarkertap="markerTapHandler"  
+      style="width: 100%; height: 480px;"
+      polyline="{{farmBoundaries}}">
+      <view wx:if="{{ selectedMarker }}" class="marker-info">
+        <view class="marker-name">{{ selectedMarker.name }}</view>
+        <view class="marker-description">描述：{{ selectedMarker.desc }}</view>
+        <view class="marker-description">ID：{{ selectedMarker.id }}</view>
+        <view class="marker-description">经度：{{ selectedMarker.longitude }}</view>
+        <view class="marker-description">纬度：{{ selectedMarker.latitude }}</view>
+        <view class="marker-description">面积：{{ selectedMarker.square }}</view>
+        <view class="marker-description">土壤类型：{{ selectedMarker.type }}</view>
+        <!-- 使用自定义样式创建圆形按钮 -->
+        <view class="close-button-circle" bindtap="closeMarkerInfo">
+          <text class="close-button-text">x</text>
+        </view>
+      </view>
+    </map>
+    <button bindtap="closeMapModal">关闭地图</button>
+  </view>
+</view>
+
+</view>
+
+
+
+

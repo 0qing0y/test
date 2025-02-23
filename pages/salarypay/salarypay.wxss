@@ -1,0 +1,165 @@
+
+  .container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .filter-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    padding: 5px;
+  }
+  .filter-label {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  .filter-value {
+    margin-right: 5px;
+    color: #666;
+  }
+  .filter-arrow {
+    font-size: 12px;
+    color: #999;
+  }
+  .leave-list {
+    margin-top: 10px;
+
+    border: 1px solid #eee;
+    border-radius: 5px;
+    height: 100%;
+  }
+  .leave-item {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  
+  .leave-info {
+    flex: 1;
+    margin-right: 15px;
+  }
+  
+  .leave-id {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .leave-user, .leave-date, .leave-reason {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 3px;
+  }
+  
+  .leave-actions {
+    text-align: right;
+  }
+  .record-btn {
+    /*background-color: #007bff;*/
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px 7px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    outline: none; /* 去除默认的外边框 */
+    width: 80px; /* 自动适应内容宽度 */
+    white-space: normal; /* 允许文字换行 */
+    text-align: center; /* 文字居中 */
+    border-radius: 7px;
+  }
+  
+  .record-btn:hover {
+    /*background-color: #0056b3;*/
+    background-color: #45a049;
+    
+  }
+  
+  .record-btn:active {
+    /*background-color: #004cba;*/
+    background-color: #3e8948;
+  }
+  
+  .record-btn:focus {
+    /*box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);  添加聚焦时的外边框 */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+  }
+
+
+  .pay-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 2px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /*font-size: 16px;*/
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    outline: none; /* 去除默认的外边框 */
+    min-width: 100px; /* 设置最小宽度 */
+    
+  }
+  
+  .pay-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .pay-btn:active {
+    background-color: #3e8948;
+  }
+  
+  .pay-btn:focus {
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); /* 添加聚焦时的外边框 */
+  }
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+    width: 260px;
+    z-index: 1001; /* 确保弹窗在遮罩层上方 */
+  }
+  .modal-content {
+    text-align: left;
+  }
+  .modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    z-index: 1000; /* 确保遮罩层在弹窗上方 */
+  }

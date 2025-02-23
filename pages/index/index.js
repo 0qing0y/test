@@ -1,220 +1,160 @@
-// index.js
-/*
 Page({
   data: {
-    time: (new Date()).toString()
+    u_uid:0
   },
-})
-*/
-
-Page({
-  data: {
-    username: '',
-    password: '',
-
-
-    e_id: '',
-    e_name: '',
-    e_square: '',
-    e_add: '',
-    e_desc: '',
-  /*
-    name: '',
-    class: '',
-    gender: '',
-    id: '',
-      // 其他学生信息的数据变量*/
-  },/*
-  inputName: function(e) {
-    this.setData({
-      name: e.detail.value
-    });
-  },
-  inputAge: function(e) {
-    this.setData({
-      age: e.detail.value
-    });
-  },
-  inputGender: function(e) {
-    this.setData({
-      gender: e.detail.value
-    });
-  },
-  submitForm: function(e) {
+  onShow: function () {
+    const app = getApp();
+    const u_id = app.globalData.u_id;
     wx.request({
-      url: 'http://127.0.0.1:8080/testapp/api/fill/', // 后端 API 的 URL
-      method: 'POST',
-      header: {
-        'content-type': 'application/json' // 设置请求头为 JSON 格式
+      url: 'http://127.0.0.1:8080/testapp/api/uuid/?u_id='+u_id, // 替换为您的后端接口地址
+      data: { u_id: u_id },
+      success: (res) => {
+        const { u_uid } = res.data;
+        app.globalData.u_uid=u_uid;
       },
-      
-      data: {
-        id: this.data.id,
-        name: this.data.name,
-        class: this.data.class,
-        gender: this.data.gender,
-
-        // 其他学生信息的数据
-      },
-      success: function(res) {
-        // 处理新增学生记录成功的情况
+      fail: () => {
         wx.showToast({
-          title: '新增成功',
-          icon: 'success',
-          duration: 2000
-        });
-      },
-      fail: function(res) {
-        // 处理新增学生记录失败的情况
-        wx.showToast({
-          title: '新增失败',
-          icon: 'none',
-          duration: 2000
+          title: '获取用户信息失败',
+          icon: 'none'
         });
       }
     });
-  },*/
-  bindInput: function(e) {
-    const field = e.currentTarget.dataset.field;
+
+    const u_uid = app.globalData.u_uid;
+    console.log(u_uid);
+    // if (u_uid === "1"||u_uid === "2") { // 如果用户是管理员，不进行任何限制
+    //   return;
+    // }
     this.setData({
-      [field]: e.detail.value
-
-    });
-  },
-  submitForm: function() {
-    const data = {
-      e_id: this.data.e_id,
-      e_name: this.data.e_name,
-      e_square: this.data.e_square,
-      e_add: this.data.e_add,
-      e_desc: this.data.e_desc,
-    };
-    wx.request({
-      url: 'http://127.0.0.1:8080/testapp/api/efill/',
-      method: 'POST',
-      data: data,
-      success: function(res) {
-        console.log(res.data);
-        wx.showToast({
-          title: '信息增加成功',
-          icon: 'success',
-          duration: 2000
-        });
-      },
-      fail: function(err) {
-        console.error(err);
-        wx.showToast({
-          title: '信息增加失败',
-          icon: 'none',
-          duration: 2000
-        });
-      }
-    });
-  },
-  deleteForm: function() {
-    const data = {
-      e_id: this.data.e_id,
-      //e_name: this.data.e_name,
-      //e_square: this.data.e_square,
-      //e_add: this.data.e_add,
-      //e_desc: this.data.e_desc,
-    };
-    wx.request({
-      url: 'http://127.0.0.1:8080/testapp/api/edelete/', // 这里改成你的删除接口的 URL
-      method: 'DELETE', // 使用 DELETE 方法
-      data: data,
-      success: function(res) {
-        console.log(res.data);
-        wx.showToast({
-          title: '信息删除成功',
-          icon: 'success',
-          duration: 2000
-        });
-      },
-      fail: function(err) {
-        console.error(err);
-        wx.showToast({
-          title: '信息删除失败',
-          icon: 'none',
-          duration: 2000
-        });
-      }
-    });
-  },
-
-  updateForm: function() {
-    const data = {
-      e_id: this.data.e_id,
-      e_name: this.data.e_name,
-      e_square: this.data.e_square,
-      e_add: this.data.e_add,
-      e_desc: this.data.e_desc,
-    };
-    wx.request({
-      url: 'http://127.0.0.1:8080/testapp/api/eupdate/', // 将主键添加到 URL 中
-      method: 'PUT', // 或者使用 PATCH 方法，根据你的需求
-      data: data,
-      success: function(res) {
-        console.log(res.data);
-        wx.showToast({
-          title: '信息更新成功',
-          icon: 'success',
-          duration: 2000
-        });
-      },
-      fail: function(err) {
-        console.error(err);
-        wx.showToast({
-          title: '信息更新失败',
-          icon: 'none',
-          duration: 2000
-        });
-      }
-    });
-  },
-
-
-/*
-  onUsernameChange(event) {
-    this.setData({
-      username: event.detail
-    });
-  },
-  onPasswordChange(event) {
-    this.setData({
-      password: event.detail
-    });
-  },
-  login() {
-    // 处理登录逻辑，可以发送登录请求等操作
-    console.log('用户名：', this.data.username);
-    console.log('密码：', this.data.password);
-  },
-  */
-  give: function(e){		//与服务器进行交互
-    console.log("执行give服务器这里了！！"),
-    wx.request({
-      url: 'http://127.0.0.1:8080/testapp/api/efind/',	//获取服务器地址，此处为本地地址
-      method: "GET",
-      header:{
-        "content-type": "application/x-www-form-urlencoded"		//使用POST方法要带上这个header
-      },
-      data: {		//向服务器发送的信息
-        mname: this.data.mname,
-        clent_name: this.data.clent_name,
-        id_code: this.data.id_code,
-        id_phone:this.data.id_phone,
-        choice_lipin: this.data.choice_lipin,
-      },
-      success: res => {
-        console.log(this.mname)
-        if (res.statusCode == 200) {
-          console.log(res)
-          this.setData({
-            result: res.data	//服务器返回的结果 
-          })    
-        }    
-      },
+      u_uid:u_uid
     })
+
+    // 如果用户不是管理员，则禁用首页的点击功能
+    //wx.hideTabBar({
+    //  index: 0 // 隐藏 tabBar 的第一个图标（即首页）
+    //});
+  },
+  navigateToLand() {
+    if (this.data.u_uid == 1||this.data.u_uid == 2) { // 如果用户是管理员或农田员工   
+    wx.navigateTo({
+      url: '/pages/land/land'
+    });
+    }
+    else{
+      wx.showToast({
+        title: '没有权限！',
+        icon: 'none'
+      });
+    }
+  },
+  navigateToFarm() {
+    if (this.data.u_uid == 1||this.data.u_uid == 3) { // 如果用户是管理员或养殖场员工 
+    wx.navigateTo({
+      url: '/pages/farm/farm'
+    });
   }
-})
+  else{
+    wx.showToast({
+      title: '没有权限！',
+      icon: 'none'
+    });
+  }
+  },
+  navigateToWarehouse() {
+    if (this.data.u_uid == 1||this.data.u_uid == 4) { // 如果用户是管理员或仓库员工 
+    wx.navigateTo({
+      url: '/pages/warehouse/warehouse'
+    });
+  }
+  else{
+    wx.showToast({
+      title: '没有权限！',
+      icon: 'none'
+    });
+  }
+  },
+  navigateToAnnouncements() {//每日考勤
+    if (this.data.u_uid == 1 ||this.data.u_uid == 2 ||this.data.u_uid == 3 ||this.data.u_uid == 4) { // 如果用户是员工
+    wx.navigateTo({
+      url: '/pages/attendance/attendance'
+    });
+  }
+    else{
+      wx.showToast({
+        title: '没有权限！',
+        icon: 'none'
+      });
+    }
+  },
+  navigateToTasks() {
+    if (this.data.u_uid == 1 ||this.data.u_uid == 2 ||this.data.u_uid == 3 ||this.data.u_uid == 4) { // 如果用户是员工
+    wx.navigateTo({
+      url: '/pages/job/job'
+    });
+  }
+  else{
+    wx.showToast({
+      title: '没有权限！',
+      icon: 'none'
+    });
+  }
+  },
+  navigateToGuide() { //员工管理
+    if (this.data.u_uid == 1) { // 如果用户是管理员
+    wx.navigateTo({
+      url: '/pages/employeemanage/employeemanage'
+    });
+  }
+  else{
+    wx.showToast({
+      title: '没有权限！',
+      icon: 'none'
+    });
+  }
+  },
+  navigateToAnimal() {
+    if (this.data.u_uid == 1||this.data.u_uid == 3) { // 如果用户是管理员或养殖场员工 
+        wx.navigateTo({
+          url: '/pages/animal/animal'
+        });
+    }
+    else{
+      wx.showToast({
+        title: '没有权限！',
+        icon: 'none'
+      });
+    }
+  },
+  navigateToFruit() {
+    if (this.data.u_uid == 1||this.data.u_uid == 2) { // 如果用户是管理员或农田员工 
+        wx.navigateTo({
+          url: '/pages/fruit/fruit'
+        });
+    }
+    else{
+      wx.showToast({
+        title: '没有权限！',
+        icon: 'none'
+      });
+    }
+  },
+      
+  navigateToManageshop() {
+    if (this.data.u_uid == 1) { // 如果用户是管理员
+        wx.navigateTo({
+          url: '/pages/manageshop/manageshop'
+        });
+    }
+    else{
+      wx.showToast({
+        title: '没有权限！',
+        icon: 'none'
+      });
+    }
+  },
+  navigateToWeather(){
+    wx.navigateTo({
+            url: '/pages/weather/weather'
+          });
+  }
+});

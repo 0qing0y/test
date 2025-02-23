@@ -1,0 +1,79 @@
+<!-- pages/employeemanage/employeemanage.wxml -->
+<image class="banner-image" src="/assets/manage.png"></image>
+<view class="container">
+
+  <view class="main-content">
+    <view class="button-container">
+      <!-- 工资发放 -->
+      <navigator url="/pages/salarypay/salarypay" open-type="navigate" class="entry-item salary-pay">
+        <image class="entry-icon" src="/assets/salary.png"></image>
+        <text class="entry-text">工资发放</text>
+      </navigator>
+
+      <!-- 请假审批 -->
+      <navigator url="/pages/leavepermit/leavepermit" open-type="navigate" class="entry-item leave-permit">
+        <image class="entry-icon" src="/assets/approval.png"></image>
+        <text class="entry-text">请假审批</text>
+      </navigator>
+
+      <!-- 员工授权 -->
+      <navigator url="/pages/authorizeUsers/authorizeUsers" open-type="navigate" class="entry-item authorize-users">
+        <image class="entry-icon" src="/assets/authorize.png"></image>
+        <text class="entry-text">员工授权</text>
+      </navigator>
+    </view>
+
+    <!-- 导入导出按钮 -->
+    <view class="button-container">
+      <view class="dropdown-menu">
+        <!-- 导入按钮 -->
+        <button bindtap="toggleDropdown" class="entry-item import-button">
+          <image class="entry-icon" src="/assets/import.png"></image>
+          <text class="entry-text">导入</text>
+        </button>
+        <view class="dropdown-content" wx:if="{{ showDropdown }}">
+          <button bindtap="importMissionData" class="entry-item1">
+            <!--<image class="entry-icon1" src="/assets/missionassign.png"></image>-->
+            <text class="entry-text1">上传任务</text>
+          </button>
+          <button bindtap="importUserData" class="entry-item1">
+            <!--<image class="entry-icon1" src="/assets/missionassign.png"></image>-->
+            <text class="entry-text1">上传员工信息</text>
+          </button>
+        </view>
+      </view>
+
+      <view class="dropdown-menu">
+        <!-- 导出按钮 -->
+        <button bindtap="toggleDropdown1" class="entry-item export-button">
+          <image class="entry-icon" src="/assets/export.png"></image>
+          <text class="entry-text">导出</text>
+        </button>
+        <view class="dropdown-content" wx:if="{{ showDropdown1 }}">
+          <button bindtap="exportUserData" class="entry-item1">
+            <!--<image class="entry-icon1" src="/assets/missionassign.png"></image>-->
+            <text class="entry-text1">导出员工信息</text>
+          </button>
+          <button bindtap="exportAttData" class="entry-item1">
+            <!--<image class="entry-icon1" src="/assets/missionassign.png"></image>-->
+            <text class="entry-text1">导出考勤信息</text>
+          </button>
+          <button bindtap="showMonthPicker" class="entry-item1">
+            <!--<image class="entry-icon1" src="/assets/missionassign.png"></image>-->
+            <text class="entry-text1">导出统计报表</text>
+          </button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 月份选择器弹窗 -->
+    <view class="picker-container" wx:if="{{ showMonthPicker }}">
+      <view class="picker-dialog">
+        <picker mode="date" value="{{ yearmonth }}" start="{{ startDate }}" end="{{ endDate }}" fields="month" bindchange="onMonthChange">
+          <view class="view-button3">选择日期 {{ yearmonth }}</view>
+        </picker>
+        <button bindtap="hideMonthPicker" class="button3">取消</button>
+      </view>
+    </view>
+  </view>
+</view>

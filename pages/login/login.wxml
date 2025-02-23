@@ -1,0 +1,7 @@
+<view class="login-container">
+  <text class="title">智慧农场登录</text>
+  <input placeholder="账号" bindinput="onInputUsername"/>
+  <input placeholder="密码" type="password" bindinput="onInputPassword"/>
+  <button bindtap="onLogin">登录</button>
+  <button bindtap="onRegister">没有账号？去注册一个>></button>
+</view>

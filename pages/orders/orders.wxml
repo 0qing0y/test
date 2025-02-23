@@ -1,0 +1,16 @@
+<view class="cart-container">
+  <block wx:for="{{cart}}" wx:key="o_id">
+    <view class="cart-item">
+      <image class="item-image" src="{{item.images}}" alt="商品图片"></image>
+      <view class="item-info">
+        <text class="item-title">商品名称: {{item.o_name}}</text>
+        <text class="item-detail">数量: {{item.o_num}}</text>
+        <text class="item-detail">单价: ¥{{item.price}}</text>
+        <text class="item-detail">总价: ¥{{item.all_price}}</text>
+        <text class="item-detail">成交时间: {{item.o_time}}</text>
+        <text class="item-detail">用户: {{item.u}}</text>
+      </view>
+
+    </view>
+  </block>
+</view>

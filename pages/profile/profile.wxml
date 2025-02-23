@@ -1,0 +1,32 @@
+<!-- <navigation-bar title="用户登录" back="{{false}}" color="black" background="#FFF"></navigation-bar> -->
+<view class="profile-container">
+ <!-- <text class="title">个人信息</text>-->
+  
+  <view class="profile-item">
+    <text>用户名: {{u_name}}</text>
+    <button bindtap="onEditUsername">修改</button>
+   
+  </view>
+  <view class="profile-item">
+    <text>性别: {{u_sex}}</text>
+    <button bindtap="onEditGender">修改</button>
+  </view>
+  <view class="profile-item">
+    <text>手机号: {{u_tl}}</text>
+    <button bindtap="onEditPhone">修改</button>
+  </view>
+  <view class="profile-item">
+    <text>地址: {{u_add}}</text>
+    <button bindtap="onEditAddress">修改</button>
+  </view>
+  <view class="profile-item">
+    <text>工作经历: {{u_exp}}</text>
+    <button bindtap="onEditExperience">修改</button>
+  </view>
+
+  <view class="profile-item">
+    <text>密码: ******</text>
+    <button bindtap="onEditPassword">修改</button>
+  </view>   
+  <button bindtap="onConfirm">确认</button>
+</view>

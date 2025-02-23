@@ -1,0 +1,7 @@
+<view class="edit-experience-container"> 
+<text class="title">\n\n</text>
+<text class="title">修改工作经历</text> 
+<text class="title">\n\n</text>
+<textarea class="custom-textarea" placeholder="新工作经历" bindinput="onInputNewExperience"></textarea>
+<button bindtap="onConfirm">确认</button>
+</view>

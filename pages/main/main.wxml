@@ -1,0 +1,4 @@
+<view class="main-container">
+  <button bindtap="onNavigateFarmland">农田</button>
+  <button bindtap="onNavigateFarm">养殖场</button>
+</view>

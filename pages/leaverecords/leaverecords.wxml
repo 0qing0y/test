@@ -1,0 +1,30 @@
+<!-- pages/leaverecords/leaverecords.wxml -->
+<view class="container">
+  <view wx:if="{{ leaveRecords.length > 0 }}">
+    <block wx:for="{{ leaveRecords }}" wx:key="index">
+      <view class="record-item">
+        <!-- 突出显示开始时间 -->
+        <view class="record-header">
+          <view class="date">请假开始日期：{{ item.l_startdate }}</view>
+          <view class="reason">
+            <view>请假天数：{{ item.l_days }}天</view>
+            <view>请假原因：{{ item.l_reason }}</view>
+            <view>请假员工ID：{{ u_id }}</view>
+            <view>请假记录ID：{{ item.l_id }}</view>
+          </view>
+        </view>
+        <!-- 请假进度 -->
+        <view class="progress-container">
+          <view class="progress-label">请假进度：</view>
+          <van-steps class="custom-steps" direction="vertical"
+                     active-icon="{{ item.icon }}" active-color="{{ item.color }}"
+                     active="{{ item.ischeck }}" steps="{{ item.steps }}">
+          </van-steps>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view wx:else>
+    <text>暂无请假记录</text>
+  </view>
+</view>

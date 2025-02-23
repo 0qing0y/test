@@ -1,0 +1,15 @@
+<view class="register-container">
+  
+  <text class="title">注册新用户</text>
+  <view class="picker-container">
+  <text>请选择角色：</text>
+  <picker mode="selector" range="{{roleTypes}}" bindchange="onRoleSelectChange">
+    <view class="picker">{{selectedRole || '选择角色'}}</view>
+  </picker>
+</view>
+  <input placeholder="账号" bindinput="onInputUsername"/>
+  <input placeholder="密码" type="password" bindinput="onInputPassword"/>
+  <input placeholder="确认密码" type="password" bindinput="onInputConfirmPassword"/>
+
+  <button bindtap="onRegisterSubmit">注册</button>
+</view>

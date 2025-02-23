@@ -1,0 +1,35 @@
+<view class="shopping"><!-- 大框架 -->
+    <!-- 导航栏 -->
+
+    <!-- 侧边栏盒子 -->
+    <view class="nav_left">
+        <block wx:for="{{leftitem}}" wx:key="id">
+            <!-- 这里定义了一个变量index，并把这个变量赋值为index，这个是wx:for循环产生的下标，传到js，通过这个下标完成商品的显示 -->
+            <view class="nav_left_items {{count==index?'active-tag':''}}" bindtap="switchRightTab" data-index="{{index}}">
+                <!-- 文字盒子 -->
+                {{item.g_name}}
+            </view>
+        </block>
+    </view>
+    
+    <!-- 右边主体部分 -->
+    <view class="nav_right">
+        <!-- 通过侧边栏的选择传到js中的index的值与js中data数据中的tag进行比较，完成商品的分类显示 -->
+        <view class="nav_right_goods" wx:for="{{rightitem}}" wx:key="id" wx:if="{{count==item.tag}}">
+            <!-- 商品详情的盒子 -->
+            <view bindtap="click_nav_right" data-index_two="{{index}}" class="nav">
+                <image src="{{item.url}}" mode="widthFix" style="width: 180rpx; height: 180rpx; border-radius: 20rpx;"></image>
+                <!-- 商品图片 -->
+                <view class="nav_right_textandprice">
+                    <!-- 文字和价格的盒子 -->
+                    <text class="nav_right_text" style="color: black;">{{item.g_name}}</text>
+                    <!-- 商品文字 -->
+                    <view class="nav_right_price">
+                        <!-- 商品价格 -->
+                        ￥{{item.g_price}}.00
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

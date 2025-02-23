@@ -1,0 +1,211 @@
+/* 通用样式 */
+.container {
+  padding: 20rpx;
+}
+
+.land-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 40rpx;
+}
+
+.button {
+  width: 100%;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+  background-color: #1aad19;
+  color: #ffffff;
+  text-align: center;
+  border: none;
+  border-radius: 5rpx;
+}
+
+.modal {
+  position: fixed;
+  top: 10;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  width: 80%;
+}
+
+.record-item {
+  margin-bottom: 10rpx;
+}
+
+.picker {
+  margin: 10rpx 0;
+  padding: 10rpx;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.input {
+  margin: 10rpx 0;
+  padding: 10rpx;
+  border: 1px solid #ddd;
+}
+
+
+.modal1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10rpx;
+  padding: 20rpx;
+}
+
+.buttonn {
+  flex: 1 1 calc(50% - 10rpx); /* 两列布局 */
+  margin-bottom: 10rpx;
+  padding: 10rpx;
+  text-align: center;
+  background-color:rgb(250, 250, 250);
+  color: white;
+  border: none;
+  border-radius: 4rpx;
+  cursor: pointer;
+}
+
+/* 最后一个按钮占据整行 
+.buttonn:nth-child(5) {
+  flex: 1 1 100%;
+}
+*/
+
+
+.modal-content1 {
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto; /* 添加滚动条 */
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort-button {
+width: 100%;
+padding: 10rpx;
+margin-bottom: 10rpx;
+background-color: #1aad19;
+color: #ffffff;
+text-align: center;
+border: none;
+border-radius: 5rpx;
+}
+
+.modal1.button {
+width: 100%;
+padding: 10rpx;
+margin-top: 10rpx;
+background-color: #1aad19;
+color: #ffffff;
+text-align: center;
+border: none;
+border-radius: 5rpx;
+}
+/* 新增样式：用于折线图容器 */
+.chart-container {
+  margin-top: 20rpx;
+ 
+}
+.chart {
+  width: 100%; /* 设置 canvas 宽度 */
+  height: 520px; /* 设置 canvas 高度 */
+}
+
+.field-info-container {
+  /* background-color: @background-color; */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  border: 2px solid #4CAF50; /* 绿色边框 */
+   /* 新增下面这行代码 */
+   width: 80% ; 
+}
+
+.field-detail {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* 上面三列并排按钮 */
+.buttonn {
+  flex: 1 1 calc(50% - 10rpx);
+  /* 两列布局 */
+  margin-bottom: 10rpx;
+  padding: 10rpx;
+  /* text-align: center; */
+  background-color: rgb(250, 250, 250);
+  color: black;
+  border: none;
+  border-radius: 4rpx;
+  cursor: pointer;
+  font-size: 24rpx;
+}
+
+
+.button-content {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  /* 添加阴影 */
+}
+
+.button-icon {
+  width: 100rpx;
+  /* 调整图标宽度 */
+  height: 100rpx;
+  /* 调整图标高度 */
+  margin-right: 20rpx;
+  /* 图标与文字之间的间距 */
+}
+/* 下面土地导入导出按钮 */
+.button1 {
+  width: 100%;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+  background-color: rgb(250, 250, 250);
+  color: black;
+  text-align: center;
+  border: none;
+  border-radius: 5rpx;
+  font-size: 24rpx;
+}

@@ -1,0 +1,97 @@
+/* 通用样式 */
+.container {
+  padding: 20rpx;
+}
+
+.title {
+  font-size: 24rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin: 20rpx 0 10rpx;
+}
+
+/* 商品项样式 */
+.product-item {
+  width: 90%; /* 调整宽度 */
+  padding: 30rpx; /* 增加内边距 */
+  margin: 20rpx auto; /* 设置外边距，居中 */
+  background-color: #f8f8f8;
+  border-radius: 20rpx; /* 圆角 */
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1); /* 阴影 */
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button {
+  padding: 10rpx;
+  background-color: #1aad19;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5rpx;
+  margin-bottom: 10rpx;
+
+}
+
+.button:last-child {
+  margin-bottom: 0;
+}
+
+/* 弹窗样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  width: 80%;
+  max-width: 600rpx; /* 限制最大宽度 */
+  box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.2); /* 阴影 */
+}
+
+.picker {
+  margin: 10rpx 0;
+  padding: 10rpx;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.input {
+  margin: 10rpx 0;
+  padding: 10rpx;
+  border: 1px solid #ddd;
+}
+
+.textarea {
+  margin: 10rpx 0;
+  padding: 10rpx;
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+}

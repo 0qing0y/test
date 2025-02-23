@@ -1,0 +1,171 @@
+<view class="container">
+  <image src="{{img}}" class="land-image"></image>
+
+<!-- 按钮容器 -->
+<view class="button-container">
+  <!-- 种植新作物按钮 -->
+  <button bindtap="openPlantModal" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/plant.jpg" class="button-icon"></image>
+      <text>种植新作物</text>
+    </view>
+  </button>
+
+  <!-- 收获作物按钮 -->
+  <button bindtap="openHarvestModal" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/收获.jpg" class="button-icon"></image>
+      <text>收获作物</text>
+    </view>
+  </button>
+
+  <!-- 查看种植记录按钮 -->
+  <button bindtap="viewRecords" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/记录.png" class="button-icon"></image>
+      <text>查看种植记录</text>
+    </view>
+  </button>
+
+  <!-- 种植记录导出按钮 -->
+  <button bindtap="exportLanddetailData" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/导出1.jpg" class="button-icon"></image>
+      <text>种植记录导出</text>
+    </view>
+  </button>
+
+
+  <!-- 输入农田环境参数按钮 -->
+  <button bindtap="OpenEnvironmentModal" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/soil.jpg" class="button-icon"></image>
+      <text>输入农田环境参数</text>
+    </view>
+  </button>
+
+  <!-- 折线图弹窗按钮 -->
+  <button bindtap="OpenParameterChart" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/chart.jpg" class="button-icon"></image>
+      <text>土壤参数实时变化</text>
+    </view>
+  </button>
+
+  <!-- 土地信息导出按钮 -->
+  <button bindtap="exportLandselfData" class="button1">
+    <view class="button-content">
+      <image src="/assets/导出2.jpg" class="button-icon"></image>
+      <text>土地信息导出</text>
+    </view>
+  </button>
+</view>
+  <view wx:if="{{ fieldInfo }}" class="field-info-container">
+
+    <view  class="field-detail">田地ID: {{ fieldInfo.f_id }}</view>
+    <view  class="field-detail">名称: {{ fieldInfo.f_name }}</view>
+    <!--<view >地址: {{ fieldInfo.f_add }}</view>-->
+    <view  class="field-detail">经度: {{ fieldInfo.f_longitude }}</view>
+    <view  class="field-detail">纬度: {{ fieldInfo.f_latitude }}</view>
+    <view  class="field-detail">面积: {{ fieldInfo.f_square }}</view>
+    <view  class="field-detail">土壤类型: {{ fieldInfo.f_type }}</view>
+    <view  class="field-detail">描述: {{ fieldInfo.f_desc }}</view>
+    <view  class="field-detail">是否空闲: {{ isIdle ? '是' : '否' }}</view>
+  </view>
+
+  <view wx:if="{{ plantInfo }}" class="field-info-container">
+    <view  class="field-detail">当前种植作物: {{ plantInfo.crop_name }}</view>
+    <!--<view >田地: {{ plantInfo.f }}</view>-->
+    <view  class="field-detail">是否入库: {{ plantInfo.is_stored ? '是' : '否' }}</view>
+    <view  class="field-detail">批次号: {{ plantInfo.p_id }}</view>
+    <view  class="field-detail">种植数量: {{ plantInfo.p_plantamount }}</view>
+    <view  class="field-detail">开始种植时间: {{ plantInfo.p_sowtime }}</view>
+
+  </view>
+
+
+  <!-- 查看种植记录弹窗 -->
+  <view wx:if="{{showRecords}}" class="modal1">
+  <view class="modal-mask">
+    <scroll-view scroll-y style="height: 80vh; display: flex; align-items: center; justify-content: center;">
+      <view class="modal-content">
+        <text>种植记录</text>
+
+        <!-- 排序方式选择器 -->
+        <picker mode="selector" range="{{ ['按收获重量排序', '按种植时间排序', '按种植作物排序', '按种植数量排序', '按收获时间排序'] }}" bindchange="handleSortChange">
+          <button class="sort-button">选择排序方式</button>
+        </picker>
+
+        <!-- 取消排序按钮
+        <button wx:if="{{ sortByHarvestWeight || sortByTime || sortByCrop || sortByAmount || sortByHarvestTime }}" bindtap="cancelSorting" class="sort-button cancel-button">取消排序</button> -->
+
+        <!-- 种植记录列表 -->
+        <view wx:for="{{ (sortByHarvestWeight || sortByTime || sortByCrop || sortByAmount || sortByHarvestTime) ? sortedPlantings : plantings }}" wx:key="p_id">
+          <view>-------------------------------------</view>
+          <view>批次号: {{ item.p_id }}</view>
+          <view>作物: {{ item.crop_name }}</view>
+          <view>田地: {{ item.f_id }}</view>
+          <view>种植时间: {{ item.p_sowtime }}</view>
+          <view>种植数量: {{ item.p_plantamount }}</view>
+          <view>收获时间: {{ item.p_harvesttime }}</view>
+          <view>收获重量: {{ item.p_harvestweight }}</view>
+          <view>是否存储: {{ item.is_stored ? '是' : '否' }}</view>
+        </view>
+
+        <button bindtap="closeModal" class="button">关闭</button>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+  <!-- 种植新作物弹窗 -->
+  <view wx:if="{{showPlantModal}}" class="modal">
+    <view class="modal-content">
+      <text>选择作物种类和数量</text>
+      <picker mode="selector" range="{{cropTypes}}" bindchange="onCropTypeChange">
+        <view class="picker">{{selectedCropType || '选择作物种类'}}</view>
+      </picker>
+      <input type="number" placeholder="输入作物数量" bindinput="onQuantityChange" value="{{selectedQuantity}}" class="input"/>
+      <button bindtap="plantNew" class="button">确认种植</button>
+      <button bindtap="closePlantModal" class="button">取消</button>
+    </view>
+  </view>
+
+  <!-- 收获作物弹窗 -->
+  <view wx:if="{{showHarvestModal}}" class="modal">
+    <view class="modal-content">
+      <text>收获作物</text>
+      <text>当前种植：{{plantInfo.crop_name}}</text>
+      <input type="number" placeholder="输入收获的质量(kg)" bindinput="onHarvestQuantityChange" value="{{harvestQuantity}}" class="input"/>
+      <button bindtap="harvestCrops" class="button">确认收获</button>
+      <button bindtap="closeHarvestModal" class="button">取消</button>
+    </view>
+  </view>
+
+    <!-- 输入环境变量弹窗 -->
+    <view wx:if="{{showEnvironmentModal}}" class="modal">
+    <view class="modal-content">
+      <text>输入当前的农田环境参数</text>
+      <input type="number" placeholder="请输入水含量（%）"  bindinput="inputSoilWater" value="{{WaterQuantity}}" class="input"/>
+      <input type="number" placeholder="请输入PH值"  bindinput="inputSoilPH"  value="{{PHQuantity}}" class="input"/>
+      <input type="number" placeholder="N值（mg/kg，一般在150-200之间）"  bindinput="inputSoilN"  value="{{NQuantity}}" class="input"/>
+      <input type="number" placeholder="P值（mg/kg，一般在60-100之间）"  bindinput="inputSoilP"  value="{{PQuantity}}" class="input"/>
+      <input type="number" placeholder="K值（mg/kg，一般在100-150之间）"  bindinput="inputSoilK"  value="{{KQuantity}}" class="input"/>
+      <button bindtap="NewFieldInfo" class="button">添加</button> 
+      <button bindtap="closeEnvironmentModal" class="button">取消</button>
+    </view>
+  </view>
+
+  <!-- 弹窗部分 -->
+<view wx:if="{{showChartModal}}" class="modal">
+  <view class="modal-content">
+    <!-- 折线图容器 -->
+    <view class="chart-container">
+      <canvas canvas-id="parameterChart" class="chart"></canvas>
+    </view>
+    <!-- 关闭按钮 -->
+    <button bindtap="closeParameterChart" class="close-button">关闭</button>
+    
+  </view>
+</view>
+</view>

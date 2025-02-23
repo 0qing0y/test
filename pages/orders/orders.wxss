@@ -1,0 +1,70 @@
+/* 全局样式 */
+.cart-container {
+  padding: 16px;
+  background-color: #f5f5f5;
+}
+
+/* 单个商品项 */
+.cart-item {
+  display: flex;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 商品图片 */
+.item-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 商品信息 */
+.item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 商品标题 */
+.item-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 商品详情 */
+.item-detail {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 4px;
+}
+
+/* 总价 */
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e60023;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* 去结算按钮 */
+.checkout-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #ff5000;
+  text-align: center;
+  border-radius: 8px;
+}

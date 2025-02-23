@@ -1,0 +1,8 @@
+
+<view class="edit-address-container"> 
+<text class="title">\n\n</text>
+<text class="title">修改地址</text> 
+<text class="title">\n\n</text>
+<textarea class="custom-textarea" placeholder="新地址" bindinput="onInputNewAddress"></textarea>
+<button bindtap="onConfirm">确认</button>
+</view>

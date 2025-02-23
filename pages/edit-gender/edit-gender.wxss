@@ -1,0 +1,33 @@
+/* 容器样式 */
+.edit-gender-container {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* 标题样式 */
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* 选择器样式 */
+.picker {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* 按钮样式 */
+.confirm-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1aad19;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}

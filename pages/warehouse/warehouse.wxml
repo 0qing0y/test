@@ -1,0 +1,14 @@
+<!--pages/warehouse/warehouse.wxml-->
+<view class="container">
+  <scroll-view class="warehouse-list" scroll-y="true">
+    <block wx:for="{{warehouse}}" wx:key="id">
+      <view class="warehouse-item">
+        <image class="warehouse-img" src="{{'/assets/warehouse' + item.w_id + '.jpg' }}" mode="aspectFill"></image>
+        <view class="warehouse-info">
+          <view class="warehouse-name">{{item.w_name}}</view>
+          <button class="details-button" bindtap="viewDetails" data-id="{{item.w_id}}">查看详情</button>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

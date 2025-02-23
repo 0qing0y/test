@@ -1,0 +1,29 @@
+<view class="container">
+  <button bindtap="viewLandInfo">查看土地信息</button>
+  <button bindtap="viewFarmInfo">查看养殖场信息</button>
+
+  <!-- 展示发布任务表单 -->
+  <view wx:if="{{showPublishTask}}">
+    <form bindsubmit="publishTask" report-submit="true">
+      <view class="form-item">
+        <label>任务描述:</label>
+        <input name="description" placeholder="输入任务描述"/>
+      </view>
+      <button formType="submit">发布任务</button>
+    </form>
+  </view>
+
+  <!-- 展示修改权限表单 -->
+  <view wx:if="{{showModifyPermissions}}">
+    <form bindsubmit="modifyPermissions" report-submit="true">
+      <view class="form-item">
+        <label>员工姓名:</label>
+        <input name="employeeName" placeholder="输入员工姓名"/>
+      </view>
+      <button formType="submit">修改权限</button>
+    </form>
+  </view>
+
+  <button bindtap="togglePublishTaskForm">发布任务</button>
+  <button bindtap="toggleModifyPermissionsForm">修改员工权限</button>
+</view>

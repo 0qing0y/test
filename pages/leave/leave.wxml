@@ -1,0 +1,28 @@
+<!-- pages/leave/leave.wxml -->
+<view class="container">
+  <view class="form-group">
+    <text class="label">开始日期</text>
+    <picker mode="date" start="{{today}}" end="{{endDate}}" value="{{startDate}}" bindchange="bindStartDateChange">
+      <view class="picker">
+        选择日期 {{ startDate }}
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-group">
+    <text class="label">请假天数</text>
+    <input class="input" type="number" placeholder="请输入请假天数" value="{{ leaveDays }}" bindinput="inputLeaveDays"/>
+  </view>
+
+  <view class="form-group">
+    <text class="label">请假缘由</text>
+    <textarea class="textarea" placeholder="请输入请假缘由" value="{{ leaveReason }}" bindinput="inputLeaveReason"></textarea>
+  </view>
+
+  <button class="btn-submit" bindtap="submitLeave">提交请假申请</button>
+
+
+
+</view>
+
+

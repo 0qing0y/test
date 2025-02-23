@@ -1,0 +1,87 @@
+/* 大框架 */
+.shopping {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #939393;
+}
+
+/* 导航栏的样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #4CAF50;
+    height: 180rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* 确保导航栏在最前面 */
+}
+
+.navbar-title {
+    color: black;
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-top: 30px; /* 添加一个30像素的上外边距 */
+}
+
+/* 左侧栏主盒子 */
+.nav_left {
+    position: fixed;
+    top: 10rpx; /* 确保左侧栏在导航栏下面 */
+    left: 0;
+    display: inline-block;
+    width: 25%;
+    height: calc(100% - 180rpx); /* 减去导航栏高度 */
+    background: #f5f5f5;
+    text-align: center;
+}
+
+.nav_left .nav_left_items {
+    height: 30px;
+    line-height: 30px;
+    padding: 6px 0;
+    border-bottom: 1px solid #dedede;
+    font-size: 14px;
+}
+
+/* 右侧盒子 */
+.nav_right {
+    position: fixed; /* 使用 fixed 定位 */
+    top: 10rpx; /* 确保右侧栏在导航栏下面 */
+    right: 0;
+    width: 75%;
+    height: calc(100% - 180rpx); /* 减去导航栏高度 */
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fff;
+    overflow-y: auto; /* 允许右侧内容滚动 */
+}
+
+.nav {
+    display: flex;
+    padding: 40rpx;
+}
+
+.nav_right_textandprice {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20rpx;
+    position: relative;
+}
+
+.nav_right_price {
+    color: red;
+    position: absolute;
+    bottom: 20rpx;
+}
+
+.active-tag {
+    background-color: white;
+    color: #1aad19;
+    border-left: 5px solid #1aad19;
+    border-radius: 5px;
+}

@@ -1,0 +1,218 @@
+.container {
+  padding: 10px;
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* 半透明黑色背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content1 {
+  background-color: #fff; /* 弹窗内容白色背景 */
+  padding: 20px;
+  border-radius: 8px;
+  width: 70%; /* 弹窗宽度 */
+  max-width: 350px; /* 最大宽度 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+}
+
+.modal-content1 input {
+  display: block;
+  width: 100%;
+  height: 40px; /* 设置输入框的高度 */
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.modal-content1 button {
+  margin-bottom: 10px;
+  background-color: #1aad19; /* 按钮背景色 */
+  color: #fff; /* 按钮文字颜色 */
+  width: 70%;
+  border: none;
+  cursor: pointer;
+}
+.add-button1{
+  margin-bottom: 10px;
+  background-color: #1aad19; /* 按钮背景色 */
+  color: #fff; /* 按钮文字颜色 */
+  width: 70%;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content1 button:hover , .add-button1 button:hover{
+  background-color: #149214; /* 鼠标悬停时的背景色 */
+}
+
+.animal-list {
+  margin-top: 20px;
+}
+
+.animal-item {
+  display: flex;
+  padding: 20px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px; /* 固定宽度 */
+  justify-content: flex-start; /* 向左对齐 */
+  align-items: center; /* 确保信息和按钮在垂直方向上对齐 */
+  flex-direction: column;
+}
+
+.animal-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  margin-right: 0px;
+}
+
+.animal-info {
+  flex: 1; /* 使信息部分占据剩余的空间 */
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  justify-content: flex-start; /* 向左对齐 */
+}
+
+.animal-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.animal-desc {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 10px; /* 修正单位为像素 */
+  word-wrap: break-word;
+}
+
+.button-container {
+  justify-content: space-between; /* 将按钮水平排列并平均分布 */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+
+.small-button {
+  font-size: 14px;
+  padding: 5px 10px;
+  height: 40px;
+  margin-bottom: 0px;
+}
+
+.text-container {
+  width: 223px;
+  /*height: 100px;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 使项目靠近最左边 */
+}
+.image-container {
+  justify-content: flex-end; /* 使项目靠近最右边 */
+}
+
+.text-container .animal-name,
+.text-container .animal-desc {
+  margin-bottom: 0; /* 修正为0 */
+}
+
+.image-info-container {
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+  width: 100%;
+}
+
+.modal-content11 {
+  background-color: #ffffff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  width: 90%;
+  height:70%;
+  position: relative;
+}
+.modal-mask11 {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.marker-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  width: 38%;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.marker-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.marker-description {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.close-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.close-button:hover {
+  background-color: #0056b3;
+}
+
+.close-button-circle {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: rgb(221, 221, 221);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.close-button-text {
+  color: rgb(100, 100, 100);
+  font-size: 18px;
+  line-height: 1;
+}

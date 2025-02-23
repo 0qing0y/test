@@ -1,0 +1,64 @@
+.container {
+    padding: 80rpx;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.header {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #4caf50; /* 修改为绿色 */
+    height: 180rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 确保导航栏在最前面 */
+}
+
+.title {
+    color: rgb(255, 255, 255);
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-top: 25px; /* 添加一个30像素的上外边距 */
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 140rpx; /* 将通知列表下移40像素 */
+}
+
+.item {
+    background-color: #fff;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    padding-bottom: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.item-title {
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.item-date {
+    font-size: 24rpx;
+    color: #888;
+}
+
+.item-content {
+    font-size: 28rpx;
+    color: #333;
+}

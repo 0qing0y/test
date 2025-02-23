@@ -1,0 +1,36 @@
+/* 样式代码根据需要自定义 */
+.profile-container {
+    padding: 0px 30px 30px 30px;
+  }
+  .title {
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+  .profile-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    line-height: 1.5; /* 1.5倍行距 */
+  }
+  .profile-item text {
+    flex: 1;
+  }
+  .profile-item button {
+    width: 60px;
+    padding: 5px ;
+    background-color: #1aad19;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    
+  }
+  button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #1aad19;
+    color: white;
+    border: none;
+    border-radius: 4px;}

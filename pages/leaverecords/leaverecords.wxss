@@ -1,0 +1,49 @@
+.container {
+  padding: 0;
+  width: 100%;
+}
+
+.record-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 360px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* 包括内边距和边框在内 */
+}
+
+.record-header {
+  display: flex;
+  flex-direction: column; /* 竖直排列 */
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.date {
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.reason {
+  flex: 1;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #666;
+  line-height: 1.6; /* 设置行高为文本大小的1.5倍 */
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-label {
+  font-weight: bold;
+  margin-right: 10px;
+  align-self: flex-start; /* 将内容在垂直方向上靠上对齐 */
+}
+
+.custom-steps {
+  margin-top: 10px;
+}

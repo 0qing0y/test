@@ -1,0 +1,37 @@
+<view class="container">
+  <!-- 筛选条件 -->
+  <view class="filter-container">
+    <picker mode="selector" range="{{['全部', '待审批', '已批准', '未批准']}}" bindchange="handleApprovalStatusChange">
+      <view class="filter-item">
+        <text class="filter-label">审批状态：</text>
+        <text class="filter-value">{{ selectedStatus }}</text>
+        <text class="filter-arrow">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 员工请假列表 -->
+  <scroll-view class="leave-list" scroll-y="true">
+    <block wx:for="{{ leaveApplications }}" wx:key="l_id">
+      <view class="leave-item">
+        <view class="leave-info">
+          <text class="leave-id">请假记录ID：{{ item.l_id }}
+          </text>
+          <text class="leave-user">员工ID：{{ item.u_id }}
+          </text>
+          <text class="leave-date">请假时间：{{ item.l_startdate }}
+          </text>
+          <text class="leave-date">请假天数：{{ item.l_days }}
+          </text>
+          <text class="leave-reason">请假原因：{{ item.l_reason }}
+          </text>
+          <text class="leave-status" style="color: {{ item.color }}">{{ item.text }}</text>
+        </view>
+        <view class="leave-actions">
+          <button class="approve-btn" wx:if="{{ item.l_permit === 0 }}" bindtap="approveLeave" data-lid="{{ item.l_id }}" data-uid="{{ item.u_id }}" data-ldays="{{ item.l_days }}">批准</button>
+          <button class="reject-btn" wx:if="{{ item.l_permit === 0 }}" bindtap="rejectLeave" data-lid="{{ item.l_id }}" data-uid="{{ item.u_id }}">拒绝</button>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

@@ -1,0 +1,141 @@
+<view class="container">
+  <view class="warehouse-details">
+    <image class="warehouse-img" src="{{warehouse.image}}" mode="aspectFill"></image>
+    <view class="detail-item">
+      <text class="detail-label">名字:</text>
+      <text class="detail-value">{{warehouse.name}}</text>
+    </view>
+    <view class="detail-item">
+      <text class="detail-label">ID:</text>
+      <text class="detail-value">{{warehouse.id}}</text>
+    </view>
+    <view class="detail-item">
+      <text class="detail-label">描述:</text>
+      <text class="detail-value">{{warehouse.description}}</text>
+    </view>
+  </view>
+
+  <!--<view class="actions">-->
+    <view class="button-container">
+    <!-- <button bindtap="showStockInModal">入库</button> -->
+    <button bindtap="showStockInModal" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/入库.png" class="button-icon"></image>
+      <text>入库</text>
+    </view>
+  </button>
+    <!-- <button bindtap="showStockOutModal">出库</button> -->
+    <button bindtap="showStockOutModal" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/出库.png" class="button-icon"></image>
+      <text>出库</text>
+    </view>
+  </button>
+    <!-- <button bindtap="selectdetial">库存信息</button> -->
+    <button bindtap="selectdetial" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/库存信息.png" class="button-icon"></image>
+      <text>库存信息</text>
+      <text>\n</text>
+    </view>
+  </button>
+    <!-- <button bindtap="handleQuery">出入库记录</button> -->
+    <button bindtap="handleQuery" class="buttonn">
+    <view class="button-content">
+      <image src="/assets/出入库记录.png" class="button-icon"></image>
+      <text>出入库记录</text>
+      <text>\n</text>
+    </view>
+  </button>
+    </view>
+  <!--</view>-->
+
+
+
+  <!-- 入库弹出层 -->
+  <view wx:if="{{isStockInModalVisible}}" class="modal">
+    <view class="modal-content">
+      <text class="modal-title">入库信息</text>
+      <input placeholder="入库产品的批次号" value="{{stockInItemName}}" bindinput="onStockInItemNameChange"/>
+      <view class="modal-actions">
+        <button bindtap="handleStockIn">确认</button>
+        <button bindtap="closeStockInModal">取消</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 出库弹出层 -->
+  <view wx:if="{{isStockOutModalVisible}}" class="modal">
+    <view class="modal-content">
+      <text class="modal-title">出库信息</text>
+      <input placeholder="批次号" value="{{stockOutItemName}}" bindinput="onStockOutItemNameChange"/>
+      <input type="number" placeholder="数量" value="{{stockOutItemQuantity}}" bindinput="onStockOutItemQuantityChange"/>
+      <view class="modal-actions">
+        <button bindtap="handleStockOut">确认</button>
+        <button bindtap="closeStockOutModal">取消</button>
+      </view>
+    </view>
+  </view>
+  
+<!-- 查询弹出层 -->
+<view wx:if="{{isSelectModalVisible}}" class="modal">
+  <view class="modal-content">
+    <view class="modal-section">
+      <view class="section-header">库存信息</view>
+      <text>\n</text>
+      <view wx:for="{{selectResult}}" wx:key="index">
+        <view>名字: {{item.name}}</view>
+        <view>批次号: {{item.p_id}}</view>
+        <view>库存数量: {{item.num}}</view>
+        <text>\n</text>
+        <!-- 可根据需要展示其他字段 -->
+      </view>
+    </view>
+
+    <!-- 关闭按钮 -->
+    <view class="modal-actions">
+      <button bindtap="closeSelectResultModal">关闭</button>
+    </view>
+  </view>
+</view>
+<!-- 查询弹出层 -->
+<!-- 查询弹出层 -->
+<!-- 在 scroll-view 中根据 sortedRecords 渲染数据 -->
+<view wx:if="{{isQueryModalVisible}}" class="modal">
+<scroll-view class="modal-scroll-view">
+  <view class="modal-content">
+
+    <view class="section-header">出入库记录</view>
+    <text>\n</text>
+
+    <!-- 渲染合并并排序后的记录 -->
+    <view class="modal-section">
+      <view wx:for="{{queryResult.sortedRecords}}" wx:key="index">
+        <view wx:if="{{item.type === '入库'}}">
+          <view>入库ID: {{item.id}}</view>
+          <view>数量: {{item.num}}</view>
+          <view>时间: {{item.time}}</view>
+          <view>产品: {{item.product}}</view>
+          <view>仓库: {{item.warehouse}}</view>
+          <text>\n</text>
+        </view>
+        <view wx:else>
+          <view>出库ID: {{item.id}}</view>
+          <view>数量: {{item.num}}</view>
+          <view>时间: {{item.time}}</view>
+          <view>产品: {{item.product}}</view>
+          <view>仓库: {{item.warehouse}}</view>
+          <text>\n</text>
+        </view>
+      </view>
+    </view>
+    <!-- 关闭按钮 modal-actions-->
+    <view class="modal-actions" style="margin-top: 20px;">
+      <button bindtap="closeQueryResultModal">关闭</button>
+    </view>
+
+  </view>
+</scroll-view>
+
+</view>
+</view>

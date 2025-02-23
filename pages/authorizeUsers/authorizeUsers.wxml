@@ -1,0 +1,30 @@
+<view class="container">
+  <!-- 筛选条件 
+  <view class="picker-container">
+    <picker mode="selector" range="{{['全部', '管理员', '农田员工', '养殖场员工', '仓库员工']}}" bindchange="handlePositionChange">
+      <view class="picker">
+        职位筛选：{{selectedPosition}}
+      </view>
+    </picker>
+  </view>-->
+  <view class="filter-container">
+    <picker mode="selector" range="{{['全部', '管理员', '农田员工', '养殖场员工', '仓库员工']}}" bindchange="handlePositionChange">
+      <view class="filter-item">
+        <text class="filter-label">职位筛选：</text>
+        <text class="filter-value">{{ selectedPosition}}</text>
+        <text class="filter-arrow">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 未授权员工列表 -->
+  <view class="user-list">
+    <view wx:for="{{unauthorizedUsers}}" wx:key="u_uid" class="user-item">
+      <view class="user-info">
+        <view class="user-id">员工ID：{{item.u_id}}</view>
+        <view class="user-role">职位：{{rolesMap[item.u_uid]}}</view>
+      </view>
+      <button class="authorize-btn" bindtap="authorizeUser" data-uid="{{item.u_id}}" data-uuid="{{item.u_uid}}">授权</button>
+    </view>
+  </view>
+</view>

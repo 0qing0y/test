@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 上架按钮 -->
+  <button bindtap="openListModal" class="button">上架商品</button>
+
+  <!-- 已上架商品列表 -->
+  <text class="section-title">已上架商品</text>
+  <view wx:for="{{products}}" wx:key="id"  class="product-item"><!--wx:if="{{item.status}}"-->
+    <view class="product-info">
+      <text>{{item.g_name}}</text>
+      <text>单价：￥{{item.g_price}}</text>
+      <text>数量：{{item.g_num}}</text>
+      <!--<text>种类：{{item.category}}</text>-->
+      <text>种类：{{item.g_desc}}</text>
+    </view>
+    <view class="product-actions">
+      <button bindtap="unlistProduct" data-id="{{item.id}}" class="button">下架</button>
+    </view>
+  </view>
+
+  <!-- 上架弹窗 -->
+  <view wx:if="{{showListModal}}" class="modal">
+    <view class="modal-content">
+      <text>选择上架种类、名称、单价和批次号</text>
+      <picker mode="selector" range="{{categories}}" bindchange="onCategoryChange">
+        <view class="picker">{{selectedCategory || '选择种类'}}</view>
+      </picker>
+      <input type="number" placeholder="输入名称" bindinput="onQuantityChange" value="{{selectedQuantity}}" class="input"/>
+      <input type="number" placeholder="输入单价" bindinput="onPriceChange" value="{{selectedPrice}}" class="input"/>
+      <textarea placeholder="输入批次号" bindinput="onDescriptionChange" value="{{selectedDescription}}" class="textarea"></textarea>
+      <button bindtap="confirmList" class="button">确认上架</button>
+      <button bindtap="closeListModal" class="button">取消</button>
+    </view>
+  </view>
+</view>

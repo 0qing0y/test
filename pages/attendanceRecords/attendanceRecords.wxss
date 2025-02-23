@@ -1,0 +1,68 @@
+.attendance {
+  display: flex;
+}
+
+.nav_left {
+  width: 20%;
+  background-color: #f0f0f0;
+  height: 100%;
+}
+
+.nav_left_items {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav_left_items.active-tag {
+  background-color: #70da55;
+}
+
+.nav_right {
+  width: 80%;
+  padding: 20px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.picker {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+  flex: 1;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.table-cell:last-child {
+  border-right: none;
+}
+
+.record {
+  margin-bottom: 20px;
+}
+
+.record_date {
+  font-weight: bold;
+}
+
+.record_details {
+  margin-top: 5px;
+}

@@ -1,0 +1,6 @@
+<view class="contact-container">
+  <view class="contact-text">联系电话：123-45678</view>
+  <view class="contact-text">email: 654321@qq.com</view>
+  <view class="contact-text">有问题欢迎致电！</view> 
+  <button bindtap="onConfirm">确认</button>
+</view>

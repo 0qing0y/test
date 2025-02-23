@@ -1,0 +1,63 @@
+<view class="top-bg"></view>
+<view class="box">
+  <!-- 头像 -->
+  <!-- <view class="head-box"> -->
+      <!-- 头像 -->
+  <view class="container">
+  <view class="userinfo">
+    <image src="{{avatarUrl}}" class="userinfo-avatar" mode="aspectFill"></image>
+  </view>
+</view>
+  <!-- </view> -->
+
+
+  <!-- 用户头像和欢迎提示
+  <view class="head-box">
+    <image wx:if="{{userInfo}}" class="head-img" src="{{userInfo.avatarUrl}}" mode="widthFix"></image>
+    <view class="tip" wx:if="{{userInfo}}">欢迎使用</view>
+  </view> -->
+
+  <!-- 获取用户信息的按钮 
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>-->
+
+
+  <!-- 第一部分列表 -->
+  <view>
+  
+ <button class="row" style="width: 100%;" bindtap="chooseImage">
+      <view class="left">
+        <icon class="icon-small" type="success" size="16"></icon>
+        <text class="text">上传头像</text>
+      </view>
+      <view class="right">></view>
+    </button>
+    <button class="row" style="width: 100%;" bindtap="basicClick">
+      <view class="left">
+        <icon class="icon-small" type="success" size="16"></icon>
+        <text class="text">基本信息</text>
+      </view>
+      <view class="right">></view>
+    </button>
+    <button class="row" style="width: 100%;border-bottom: none;" bindtap="aboutClick">
+      <view class="left">
+        <icon class="icon-small" type="success" size="16"></icon>
+        <text class="text">联系我们</text>
+      </view>
+      <view class="right">></view>
+    </button>
+  </view>
+</view>
+
+<!-- 第二部分列表 -->
+<view class="end">
+  <button bindtap="logout" class="row" style="width: 100%;border-bottom: none;">
+    <view class="left">
+      <icon class="icon-small" type="success" size="16"></icon>
+      <text class="text">退出登录</text>
+    </view>
+  </button>
+</view>
+
+<view class="footer">
+  <text>©个人中心</text>
+</view>

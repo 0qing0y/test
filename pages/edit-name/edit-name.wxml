@@ -1,0 +1,8 @@
+<!--pages/admin/admin.wxml-->
+<view class="edit-admin-container"> 
+<text class="title">\n\n</text>
+<text class="title">修改用户名</text> 
+<text class="title">\n\n</text>
+<input placeholder="新用户名" type="admin" bindinput="onInputNewAdmin"/> 
+<button bindtap="onConfirm">确认</button>
+</view>

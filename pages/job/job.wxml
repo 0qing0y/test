@@ -1,0 +1,56 @@
+<view class="container">
+    <view class="navbar">
+        <text class="navbar-title">任务领取</text>
+    </view>
+    <view class="task-list">
+        <!-- 假设现在只有一个固定的任务，可以静态展示 -->
+        <view class="task-item">
+            <view class="task-image">
+                <image src="{{image}}" alt="Task Image"/>
+            </view>
+            <view class="task-content">
+                <!-- 任务详情按钮 -->
+                <button class="task-detail-btn" bindtap="viewTaskDetails" data-id="1">任务详情</button>
+                <!-- 任务标题 -->
+                <text class="task-title">等你好久了</text>
+                <!-- 任务领取按钮 -->
+                <button class="task-btn" bindtap="claimTask">任务领取</button>
+                <!-- 任务完成按钮 -->
+                <button class="task-btn2" bindtap="completeTask">任务完成</button>
+            </view>
+        </view>
+    </view>
+
+
+
+<!-- 弹窗 -->
+<view wx:if="{{showModal}}" class="modal">
+    <view class="modal-content">
+        <view class="modal-header">
+            <text class="modal-title">任务详情</text>
+            <button class="modal-close-btn" bindtap="closeModal">×</button>
+        </view>
+        <view class="modal-body">
+            <view>
+                <text>任务 ID: </text>
+                <text>{{currentTask.m_id}}</text>
+            </view>
+            <view>
+                <text>任务描述: </text>
+                <text>{{currentTask.m_desc}}</text>
+            </view>
+            <view>
+                <text>开始时间: </text>
+                <text>{{currentTask.m_start}}</text>
+            </view>
+            <view>
+                <text>截止时间: </text>
+                <text>{{currentTask.m_ddl}}</text>
+            </view>
+            <!-- 添加其他任务详情 -->
+        </view>
+    </view>
+</view>
+
+
+</view>

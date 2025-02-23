@@ -1,0 +1,97 @@
+/* pages/leavepermit/leavepermit.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.filter-container {
+  width: 100%;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;
+  background-color: #f8f8f8;
+  border-radius: 5rpx;
+}
+
+.filter-label {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.filter-value {
+  font-size: 28rpx;
+  margin-left: 10rpx;
+  color: #333333;
+}
+
+.filter-arrow {
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  color: #999999;
+}
+
+.leave-list {
+  width: 100%;
+  padding-top: 20rpx;
+}
+
+.leave-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+  border-radius: 10rpx;
+  width: 100%;
+}
+
+.leave-info {
+  margin-bottom: 10rpx;
+  width: 80%;
+}
+
+.leave-id,
+.leave-user,
+.leave-date,
+.leave-reason {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 5rpx;
+}
+
+.leave-status {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.leave-actions {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  /*justify-content: space-between;  均匀分布 */
+  align-items: flex-end; /* 右对齐 */
+}
+
+.approve-btn,
+.reject-btn {
+  margin-left: 5rpx;
+  margin-top: 30rpx;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  border: 1rpx solid #666666;
+  border-radius: 5rpx;
+  color: #ffffff;
+  background-color: rgb(73, 156, 18);
+}
+
+.reject-btn {
+  background-color: rgb(209, 45, 16);
+}

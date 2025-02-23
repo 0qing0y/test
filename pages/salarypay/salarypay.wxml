@@ -1,0 +1,113 @@
+<view class="container">
+  <!-- 筛选条件 -->
+  <view class="filter-container">
+    <picker mode="selector" range="{{['全部', '未发放工资', '已发放工资']}}" bindchange="handleApprovalStatusChange">
+      <view class="filter-item">
+        <text class="filter-label">发放状态：</text>
+        <text class="filter-value">{{ selectedStatus }}</text>
+        <text class="filter-arrow">▼</text>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{ ['全部','2024', '2025', '2026','2027', '2028', '2029','2030', '2031', '2032', '2033'] }}" bindchange="handleYearChange">
+      <view class="filter-item">
+        <text class="filter-label">年份：</text>
+        <text class="filter-value">{{ selectedYear }}</text>
+        <text class="filter-arrow">▼</text>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{ ['全部','1', '2', '3','4','5','6','7','8','9','10','11','12'] }}" bindchange="handleMonthChange">
+      <view class="filter-item">
+        <text class="filter-label">月份：</text>
+        <text class="filter-value">{{ selectedMonth }}</text>
+        <text class="filter-arrow">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 列表 -->
+  <scroll-view class="leave-list" scroll-y="true">
+    <block wx:for="{{ leaveApplicationsShow }}" wx:key="am_id">
+      <view class="leave-item">
+  <view class="leave-info">
+
+    <text class="leave-id">员工ID：{{ item.u_id }}
+    </text>
+    <text class="leave-id">年份：{{ item.am_year }}
+    </text>
+    <text class="leave-id">月份：{{ item.am_month }}
+    </text>
+    <text class="leave-user">月度记录ID：{{ item.am_id }}
+    </text>
+    <text class="leave-reason">是否支付工资：{{ item.is_paid ? '是' : '否' }}</text>
+  </view>
+  <view class="leave-actions">
+    <button class="record-btn" bindtap="CheckAttendanceMonth" data-amid="{{ item.am_id }}" data-amyear="{{ item.am_year }}" data-ammonth="{{ item.am_month }}" data-uid="{{ item.u_id }}">查看月度记录</button>
+  </view>
+</view>
+    </block>
+  </scroll-view>
+</view>
+
+<!-- 弹窗1 -->
+<view class="mask" wx:if="{{ showModal1 }}"></view> <!-- 遮罩层 -->
+<view class="modal" wx:if="{{ showModal1 }}">
+  <view class="modal-content">
+    <text class="modal-title">月度记录详情
+    </text>
+    <text>月度记录ID：{{ summary.am_id }}
+    </text>
+    <text>员工ID：{{ summary.u_id }}
+    </text>
+    <text>年份：{{ summary.am_year }}
+    </text>
+    <text>月份：{{ summary.am_month }}
+    </text>
+    <text>工作天数：{{ summary.am_workday }}
+    </text>
+    <text>加班时数：{{ summary.am_OThour }}
+    </text>
+    <text>请假天数：{{ summary.am_leaveday }}
+    </text>
+    <text>迟到次数：{{ summary.am_latetimes }}
+    </text>
+    <text>早退次数：{{ summary.am_earlytimes }}
+    </text>
+    <text>旷工天数：{{ summary.am_absenttimes }}
+    </text>
+    <button class="close-btn" bindtap="closeModal1">关闭</button>
+  </view>
+</view>
+
+<!-- 弹窗2 -->
+<view class="mask" wx:if="{{ showModal2 }}"></view> <!-- 遮罩层 -->
+<view class="modal" wx:if="{{ showModal2 }}">
+  <view class="modal-content">
+    <text class="modal-title">月度记录详情
+    </text>
+    <text>月度记录ID：{{ summary.am_id }}
+    </text>
+    <text>员工ID：{{ summary.u_id }}
+    </text>
+    <text>年份：{{ summary.am_year }}
+    </text>
+    <text>月份：{{ summary.am_month }}
+    </text>
+    <text>工作天数：{{ summary.am_workday }}
+    </text>
+    <text>加班时数：{{ summary.am_OThour }}
+    </text>
+    <text>请假天数：{{ summary.am_leaveday }}
+    </text>
+    <text>迟到次数：{{ summary.am_latetimes }}
+    </text>
+    <text>早退次数：{{ summary.am_earlytimes }}
+    </text>
+    <text>旷工天数：{{ summary.am_absenttimes }}
+    </text>
+    <text>工资：{{ summary.salary }}
+    </text>
+    <text>是否支付工资：{{ summary.is_paid ? '是' : '否'  }}</text>
+    <button class="pay-btn" bindtap="markAsPaid" data-amid="{{ summary.am_id }}" data-ammonth="{{ summary.am_month }}" data-amyear="{{ summary.am_year }}" data-uid="{{ summary.u_id }}" wx:if="{{ summary.is_paid != 1 }}">发放工资</button>
+    <button class="close-btn" bindtap="closeModal2">关闭</button>
+  </view>
+</view>

@@ -1,0 +1,115 @@
+/* pages/goodsdetails/goodsdetails.wxss */
+
+/* 新增导航栏的样式 */
+.page-header {
+    background-color: #f5f5f5; /* 设置背景色 */
+    color: #333; /* 文字颜色 */
+    font-size: 18px; /* 字体大小 */
+    padding: 10px 0; /* 上下内边距 */
+    text-align: center; /* 文字居中 */
+    border-bottom: 1px solid #ddd; /* 底部边框 */
+    position: fixed; /* 固定在页面顶部 */
+    width: 100%; /* 宽度100% */
+    z-index: 1000; /* 确保在其他元素上方显示 */
+}
+
+/* 调整页面内容区域的位置 */
+.page-content {
+    margin-top: 60px; /* 留出导航栏的高度 */
+    padding: 20px; /* 页面内容的内边距 */
+}
+
+.detail_nav {
+    background-color: #f5f5f5; /* 与左侧栏背景色一致 */
+    color: #333; /* 文字颜色 */
+    font-size: 16px; /* 字体大小 */
+    padding: 10px; /* 内边距 */
+    text-align: center; /* 文字居中 */
+    border-bottom: 1px solid #ddd; /* 底部边框 */
+}
+
+.nav_left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    background: #f5f5f5; /* 主盒子设置背景色为灰色 */
+    text-align: center;
+    z-index: 10; /* 确保左侧栏在最顶层 */
+}
+
+.nav_right {
+    position: absolute;
+    top: 0;
+    left: 25%; /* 根据左侧栏宽度调整右侧盒子位置 */
+    width: 75%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.detail {
+    background-color: #e9e9e9;
+}
+
+/* 底部按钮导航栏 */
+.detail_button {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    height: 100rpx;
+    width: 100%;
+    animation: slide-up 0.3s ease-out forwards; /* 添加动画效果 */
+}
+
+.button_message,.button_message1,
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100rpx;
+}
+
+.button_image, .button_image1{
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.button_text {
+    font-size: smaller;
+}
+
+.button {
+    position: relative; /* 使得角标可以相对于按钮定位 */
+    flex: 1;
+    text-align: center;
+    padding: 20rpx;
+    border-radius: 50rpx;
+    margin: 0 20rpx;
+}
+
+.button_one {
+    background-color: #ffa630;
+}
+
+.button_two {
+    background-color: #ff2c3c;
+}
+
+/* 购物车角标样式 */
+.cart-count {
+    position: absolute;
+    top: -10rpx;
+    right: -10rpx;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5rpx 10rpx;
+    font-size: 20rpx;
+}

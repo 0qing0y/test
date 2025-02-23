@@ -1,0 +1,63 @@
+/* pages/warehouse/warehouse.wxss */
+.container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  background-color: #00a65a;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.warehouse-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.warehouse-item {
+  display: flex;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: #fff;
+}
+
+.warehouse-img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.warehouse-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.warehouse-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.details-button {
+  background-color: #00a65a;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  align-self: flex-end;
+  cursor: pointer;
+  position: absolute;
+  right: 20px; /* 调整按钮与页面右侧的距离，可以根据需要进行调整 */
+}

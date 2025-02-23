@@ -1,0 +1,8 @@
+<view class="home-container">
+  <image src="D:/myfarm/farmphoto.jpg" class="farm-image"/>
+  <view class="footer-buttons">
+    <button bindtap="onNavigateHome">主页</button>
+    <button bindtap="onNavigateMarket">集市</button>
+    <button bindtap="onNavigateProfile">我的</button>
+  </view>
+</view>

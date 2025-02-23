@@ -1,0 +1,36 @@
+/* 样式代码根据需要自定义 */
+.edit-experience-container {
+  padding: 20px;
+}
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #1aad19;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+
+.custom-textarea {
+  width: 100%; /* 可以根据需要调整 */
+  height: 200px; /* 高度可以根据需要调整 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px; /* 字体大小 */
+  box-sizing: border-box; /* 确保内边距不会影响总宽度 */
+  resize: none; /* 禁止用户调整文本域大小 */
+}

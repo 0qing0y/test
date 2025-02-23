@@ -1,0 +1,61 @@
+<view class="detail">
+  <block wx:for="{{rightitem}}" wx:key="id" wx:if="{{number == index}}">
+    <image class="shop_image" mode="widthFix" src="{{item.url}}" style="width: 750rpx; height: 750rpx;"></image>
+
+    <view class="detail_box">
+      <!-- 导航栏 -->
+      <view class="detail_nav">
+        <text>商品详情</text>
+      </view>
+
+      <!-- 商品名称 -->
+      <view class="detail_item">
+        <text>名称：</text>
+        <text>{{item.g_name}}</text>
+      </view>
+
+      <!-- 单价 -->
+      <view class="detail_item">
+        <text>单价：</text>
+        <text>￥{{item.g_price}}.00</text>
+      </view>
+
+      <!-- 数量 -->
+      <view class="detail_item">
+        <text>数量：</text>
+        <text>{{item.g_num}}斤</text>
+      </view>
+
+      <!-- 商品描述 
+      <view class="detail_item">
+        <text>商品描述：</text>
+        <text>{{item.g_desc}}</text>
+      </view>-->
+
+      <!-- 上架时间 -->
+      <view class="detail_item">
+        <text>上架时间：</text>
+        <text>{{item.g_up}}</text>
+      </view>
+
+      <!-- 下架时间 
+      <view class="detail_item">
+        <text>下架时间：</text>
+        <text>{{item.g_down}}</text>
+      </view>-->
+    </view>
+  </block>
+
+  <view class="detail_button"><!--底部的商品导航-->
+    <navigator class="button_message" url='/pages/goods/goods'><!--返回图标部分-->
+      <image src="goback.jpg" class="button_image"></image>
+    </navigator>
+    <navigator class="button_message1" url='/pages/cart/cart'><!--查看购物车图标部分-->
+      <image src="gouwuche.jpg" class="button_image1"></image>
+    </navigator>
+    <view class="button button_one" bindtap="addToCart">加入购物车
+      <view wx:if="{{cartCount > 0}}" class="cart-count">{{cartCount}}</view>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<view class="edit-gender-container">
+  <text class="title">\n\n</text>
+  <text class="title">修改性别</text> 
+  <text class="title">\n\n</text>
+  
+  <!-- 性别选择器 -->
+  <picker mode="selector" range="{{genders}}" bindchange="onGenderChange">
+    <view class="picker">
+      当前选择: {{selectedGender || '请选择性别'}}
+    </view>
+  </picker>
+
+  <!-- 确认按钮 -->
+  <button class="confirm-button" bindtap="onConfirm">确认修改</button>
+</view>

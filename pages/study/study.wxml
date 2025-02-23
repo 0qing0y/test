@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="navbar">
+    <text class="navbar-title">农业学习指南</text>
+  </view>
+
+  <view class="guide-list">
+    <!-- 示例指南项 -->
+    <view class="guide-item" wx:for="{{guides}}" wx:key="id">
+      <view class="guide-content">
+        <text class="guide-title">{{item.title}}</text>
+        <text class="guide-desc">{{item.desc}}</text>
+        <button class="guide-detail-btn" bindtap="showModal" data-id="{{item.id}}">查看详情 ></button>
+      </view>
+    </view>
+  </view>
+
+ <!-- 弹窗部分 -->
+ <view wx:if="{{showModal}}" class="modal">
+    <view class="modal-overlay" bindtap="closeModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">{{currentTask.title}}</text>
+        <button class="modal-close-btn" bindtap="closeModal">×</button>
+      </view>
+      <view class="modal-body">
+        <text>{{currentTask.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+

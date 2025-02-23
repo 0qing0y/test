@@ -1,0 +1,8 @@
+/* pages/admin/admin.wxss */
+.container {
+  padding: 20px;
+}
+
+button {
+  margin: 10px 0;
+}
